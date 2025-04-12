@@ -40,33 +40,41 @@ int main() {
 
 //Variáveis
 //Matriz tabuleiro
-/*int TABULEIRO [linhas][colunas] =
-{
-{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
-{11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
-{21, 22, 23, 24, 25, 26, 27, 28, 29, 30}, //1-2 a 1-4 - 12,22,32 navio 1 - Queen Anne Revenge - Barba negra
-{31, 32, 33, 34, 35, 36, 37, 38, 39, 40}, //7-6 a 7-8 - 77,78,79 navio 2 - Whydah - Samuel Bellamy
-{41, 42, 43, 44, 45, 46, 47, 48, 49, 50}, // - Fancy - Henry Avery
-{51, 52, 53, 54, 55, 56, 57, 58, 59, 60}, // - Kingston - John Rackhan
-{61, 62, 63, 64, 65, 66, 67, 68, 69, 70},
-{71, 72, 73, 74, 75, 76, 77, 78, 79, 80},
-{81, 82, 83, 84, 85, 86, 87, 88, 89, 90},
-{91, 92, 93, 94, 95, 96, 97, 98, 99, 100}
-};
+/*Visualização do tabuleiro
+  0    1   2   3   4   5   6   7   8   9
+0{1,   2,  3,  4,  5,  6,  7,  8,  9, 10},
+1{11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+2{21, 22, 23, 24, 25, 26, 27, 28, 29, 30}, // - Queen Anne Revenge - Edward Teach
+3{31, 32, 33, 34, 35, 36, 37, 38, 39, 40}, // - Whydah - Samuel Bellamy
+4{41, 42, 43, 44, 45, 46, 47, 48, 49, 50}, // - Fancy - Henry Avery
+5{51, 52, 53, 54, 55, 56, 57, 58, 59, 60}, // - Kingston - John Rackhan
+6{61, 62, 63, 64, 65, 66, 67, 68, 69, 70},
+7{71, 72, 73, 74, 75, 76, 77, 78, 79, 80},
+8{81, 82, 83, 84, 85, 86, 87, 88, 89, 90},
+9{91, 92, 93, 94, 95, 96, 97, 98, 99, 100}
+*/
 
-int TABULEIRO [10][10] =
+int TABULEIRO [linhas][colunas] =
 {
-{0, 3, 3, 3, 0, 0, 0, 0, 0, 0},
-{0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
-{0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
-{0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-{3, 0, 0, 0, 0, 0, 3, 3, 3, 0},
-{0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
-{0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 };
+
+//Posição navios
+int queenannerevenge[3] = {TABULEIRO[1][1] =+ 3, TABULEIRO[2][1] =+ 3, TABULEIRO[3][1] =+ 3};
+int whydah[3] = {TABULEIRO[7][6] =+ 3, TABULEIRO[7][7] =+ 3, TABULEIRO[7][8] =+ 3};
+int fancy[3] = {TABULEIRO[7][0] =+ 3, TABULEIRO[8][1] =+ 3, TABULEIRO[9][2] =+ 3};
+int kingston[3] = {TABULEIRO[2][4] =+ 3, TABULEIRO[1][5] =+ 3, TABULEIRO[0][6] =+ 3};
+
+
 
 //Tela de boas-vindas
 printf("Bem-vind0(a) ao seu jogo de BATALHA NAVAL PIRATA\n");
@@ -80,59 +88,9 @@ for(int l = 0; l < 10; l++) //Primeiro, definir a variável da linha e quantas v
         printf("%d\t", TABULEIRO[l][c]); //Função printf para imprimir a matriz, com \t para tabulação de espaço entre as colunas
     }
     printf("\n"); //Função printf com \n para dar espaço entre as linhas
-}*/
-
-int TABULEIRO [linhas][colunas];
-int soma = 0;
-
-for (int l = 0; l < linhas; l++)
-{
-   for (int c = 0; c < colunas; c++)
-   {
-    soma ++;
-    TABULEIRO[l][c] = soma;
-   }
- 
 }
 
-
-for (int l = 0; l < linhas; l++)
-{
-   for (int c = 0; c < colunas; c++)
-   {
-    if (TABULEIRO[l][c] > 1 && TABULEIRO[l][c] < 5) //Navio 1
-    {
-        TABULEIRO[l][c] = 3;
-    }
-    if (TABULEIRO[l][c] > 66 && TABULEIRO[l][c] < 70) // Navoi 2 67 68 69
-    {
-        TABULEIRO[l][c] = 3;
-    }
-    /*if (TABULEIRO[l][c] == 18 && TABULEIRO[l][c] == 27 && TABULEIRO[l][c] == 36) // Navio 3 18 27 36
-    {
-        TABULEIRO[l][c] = 3;
-    }
-    if (TABULEIRO[l][c] == 61 && TABULEIRO[l][c] == 72 && TABULEIRO[l][c] == 83) // Navio 4 61 72 83
-    {
-        TABULEIRO[l][c] = 3;
-    }*/
-    
-   }
- 
-}
-
-
-
-
-
-for (int l = 0; l < linhas; l++)
-{
-   for (int c = 0; c < colunas; c++)
-   {
-      printf("%d\t", TABULEIRO[l][c]);
-   }
- printf("\n");
-}
+printf("\n\nLEGENDA:\n\n0 = Água\n3 = Navios\n\n");
 
 
 
