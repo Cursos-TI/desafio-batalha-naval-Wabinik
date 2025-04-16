@@ -85,6 +85,11 @@ int piramide[5][3] =
 {0, 1, 1, 1, 0},
 {1, 1, 1, 1, 1};
 
+int X[5][3] = 
+{0, 1, 0, 1, 0},
+{0, 0, 1, 0, 0},
+{0, 1, 0, 1, 0};
+
 
 //Tela de boas-vindas
 printf("Bem-vind0(a) ao seu jogo de BATALHA NAVAL PIRATA\n");
@@ -100,7 +105,7 @@ for(int l = 0; l < 10; l++) //Primeiro, definir a variável da linha e quantas v
     printf("\n"); //Função printf com \n para dar espaço entre as linhas
 }
 
-printf("\n\nLEGENDA:\n\n0 = Água\n3 = Navios\n\n");
+printf("\n\nLEGENDA:\n\n0 = Água\n1 = Habilidades\n3 = Navios\n\n");
 
 
 
