@@ -74,6 +74,16 @@ int whydah[3] = {TABULEIRO[7][6] =+ 3, TABULEIRO[7][7] =+ 3, TABULEIRO[7][8] =+ 
 int fancy[3] = {TABULEIRO[7][0] =+ 3, TABULEIRO[8][1] =+ 3, TABULEIRO[9][2] =+ 3};
 int kingston[3] = {TABULEIRO[2][4] =+ 3, TABULEIRO[1][5] =+ 3, TABULEIRO[0][6] =+ 3};
 
+//Matrizes de Habilidades
+int estrela[5][3] = 
+{0, 0, 1, 0, 0},
+{0, 1, 1, 1, 0},
+{0, 0, 1, 0, 0};
+
+int piramide[5][3] =
+{0, 0, 1, 0, 0},
+{0, 1, 1, 1, 0},
+{1, 1, 1, 1, 1};
 
 
 //Tela de boas-vindas
