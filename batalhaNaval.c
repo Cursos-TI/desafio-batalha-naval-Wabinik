@@ -44,10 +44,10 @@ int main() {
   0    1   2   3   4   5   6   7   8   9
 0{1,   2,  3,  4,  5,  6,  7,  8,  9, 10},
 1{11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
-2{21, 22, 23, 24, 25, 26, 27, 28, 29, 30}, // - Queen Anne Revenge - Edward Teach
-3{31, 32, 33, 34, 35, 36, 37, 38, 39, 40}, // - Whydah - Samuel Bellamy
-4{41, 42, 43, 44, 45, 46, 47, 48, 49, 50}, // - Fancy - Henry Avery
-5{51, 52, 53, 54, 55, 56, 57, 58, 59, 60}, // - Kingston - John Rackhan
+2{21, 22, 23, 24, 25, 26, 27, 28, 29, 30}, // - Queen Anne Revenge 
+3{31, 32, 33, 34, 35, 36, 37, 38, 39, 40}, // - Whydah 
+4{41, 42, 43, 44, 45, 46, 47, 48, 49, 50}, // - Fancy 
+5{51, 52, 53, 54, 55, 56, 57, 58, 59, 60}, // - Kingston 
 6{61, 62, 63, 64, 65, 66, 67, 68, 69, 70},
 7{71, 72, 73, 74, 75, 76, 77, 78, 79, 80},
 8{81, 82, 83, 84, 85, 86, 87, 88, 89, 90},
@@ -56,6 +56,7 @@ int main() {
 
 int TABULEIRO [linhas][colunas] =
 {
+/*{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -64,8 +65,7 @@ int TABULEIRO [linhas][colunas] =
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}*/
 };
 
 //Posição navios
@@ -75,24 +75,35 @@ int fancy[3] = {TABULEIRO[7][0] =+ 3, TABULEIRO[8][1] =+ 3, TABULEIRO[9][2] =+ 3
 int kingston[3] = {TABULEIRO[2][4] =+ 3, TABULEIRO[1][5] =+ 3, TABULEIRO[0][6] =+ 3};
 
 //Matrizes de Habilidades
-int estrela[5][3] = 
-{0, 0, 1, 0, 0},
-{0, 1, 1, 1, 0},
-{0, 0, 1, 0, 0};
+int octaedro[3][5] = 
+{
+/*{0, 0, 1, 0, 0}, //0,3
+{0, 1, 1, 1, 0}, //1,2 - 1,4
+{0, 0, 1, 0, 0},  //2,3*/
+{TABULEIRO[0][1] += 0, TABULEIRO[0][2] += 0, TABULEIRO[0][3] =+ 1, TABULEIRO[0][4] += 0, TABULEIRO[0][5] += 0},
+{TABULEIRO[1][1] += 0, TABULEIRO[1][2] =+ 1, TABULEIRO[1][3] =+ 1, TABULEIRO[1][4] =+ 1, TABULEIRO[1][5] += 0},
+{TABULEIRO[2][1] += 0, TABULEIRO[2][2] += 0, TABULEIRO[2][3] =+ 1, TABULEIRO[2][4] += 0, TABULEIRO[2][5] += 0,}
+};
 
-int piramide[5][3] =
-{0, 0, 1, 0, 0},
-{0, 1, 1, 1, 0},
-{1, 1, 1, 1, 1};
+int cone[3][5] =
+{
+{0, 0, 1, 0, 0}, //4,7
+{0, 1, 1, 1, 0}, //5,6 - 5,8
+{1, 1, 1, 1, 1}  //6,5 - 6,9
+};
 
-int X[5][3] = 
-{0, 1, 0, 1, 0},
-{0, 0, 1, 0, 0},
-{0, 1, 0, 1, 0};
+int cruz[3][5] = 
+{
+{0, 0, 1, 0, 0}, //6,3
+{1, 1, 1, 1, 1}, //7,1 - 7,5
+{0, 0, 1, 0, 0}  //8,3
+};
+
+
 
 
 //Tela de boas-vindas
-printf("Bem-vind0(a) ao seu jogo de BATALHA NAVAL PIRATA\n");
+printf("Bem-vindo(a) ao seu jogo de BATALHA NAVAL\n");
 printf("Este é o seu tabuleiro:\n\n");
 
 //Como imprimir a matriz com o FOR:
@@ -100,13 +111,27 @@ for(int l = 0; l < 10; l++) //Primeiro, definir a variável da linha e quantas v
 {
     for(int c = 0; c < 10; c++) //Em seguida, fazer o mesmo com a variável da coluna
     {
+        /*if (TABULEIRO[0][3] == 0)
+        {
+            TABULEIRO[0][3] =+ 1, TABULEIRO[1][2] =+ 1, TABULEIRO[1][3] =+ 1, TABULEIRO[1][4] =+ 1, TABULEIRO[2][3] =+ 1;
+        }
+        if (TABULEIRO[4][7] == 0)
+        {
+            TABULEIRO[4][7] =+ 1, TABULEIRO[5][6] =+ 1, TABULEIRO[5][7] =+ 1, TABULEIRO[5][8] =+ 1, TABULEIRO[6][5] =+ 1, TABULEIRO[6][6] =+ 1, TABULEIRO[6][7] =+ 1, TABULEIRO[6][8] =+ 1, TABULEIRO[6][9] =+ 1;
+        }
+        if (TABULEIRO[6][3] == 0)
+        {
+            TABULEIRO[6][3] =+ 1, TABULEIRO[7][1] =+ 1, TABULEIRO[7][2] =+ 1, TABULEIRO[7][3] =+ 1, TABULEIRO[7][4] =+ 1, TABULEIRO[7][5] =+ 1, TABULEIRO[8][3] =+ 1;
+        }*/
+        
+        
+        
         printf("%d\t", TABULEIRO[l][c]); //Função printf para imprimir a matriz, com \t para tabulação de espaço entre as colunas
     }
     printf("\n"); //Função printf com \n para dar espaço entre as linhas
 }
 
 printf("\n\nLEGENDA:\n\n0 = Água\n1 = Habilidades\n3 = Navios\n\n");
-
 
 
     return 0;
