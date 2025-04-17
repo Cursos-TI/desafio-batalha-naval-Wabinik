@@ -56,7 +56,6 @@ int main() {
 
 int TABULEIRO [linhas][colunas] =
 {
-/*{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -65,7 +64,8 @@ int TABULEIRO [linhas][colunas] =
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}*/
+{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 };
 
 //Posição navios
@@ -74,36 +74,27 @@ int whydah[3] = {TABULEIRO[7][6] =+ 3, TABULEIRO[7][7] =+ 3, TABULEIRO[7][8] =+ 
 int fancy[3] = {TABULEIRO[7][0] =+ 3, TABULEIRO[8][1] =+ 3, TABULEIRO[9][2] =+ 3};
 int kingston[3] = {TABULEIRO[2][4] =+ 3, TABULEIRO[1][5] =+ 3, TABULEIRO[0][6] =+ 3};
 
-//Matrizes de Habilidades
-int octaedro[3][5] = 
+//Matrizes de Habilidades **APENAS VISUALIZAÇÃO**
+/*int octaedro[3][5] = 
 {
-/*{0, 0, 1, 0, 0}, //0,3
+{0, 0, 1, 0, 0}, //0,3
 {0, 1, 1, 1, 0}, //1,2 - 1,4
-{0, 0, 1, 0, 0},  //2,3*/
-{TABULEIRO[0][1] += 0, TABULEIRO[0][2] += 0, TABULEIRO[0][3] =+ 1, TABULEIRO[0][4] += 0, TABULEIRO[0][5] += 0},
-{TABULEIRO[1][1] += 0, TABULEIRO[1][2] =+ 1, TABULEIRO[1][3] =+ 1, TABULEIRO[1][4] =+ 1, TABULEIRO[1][5] += 0},
-{TABULEIRO[2][1] += 0, TABULEIRO[2][2] += 0, TABULEIRO[2][3] =+ 1, TABULEIRO[2][4] += 0, TABULEIRO[2][5] += 0,}
+{0, 0, 1, 0, 0},  //2,3
 };
 
 int cone[3][5] =
 {
-/*{0, 0, 1, 0, 0}, //4,7
+{0, 0, 1, 0, 0}, //4,7
 {0, 1, 1, 1, 0}, //5,6 - 5,8
-{1, 1, 1, 1, 1}  //6,5 - 6,9*/
-{TABULEIRO[4][5] += 0, TABULEIRO[4][6] += 0, TABULEIRO[4][7] =+ 1, TABULEIRO[4][8] += 0, TABULEIRO[4][9] += 0},
-{TABULEIRO[5][5] += 0, TABULEIRO[5][6] =+ 1, TABULEIRO[5][7] =+ 1, TABULEIRO[5][8] =+ 1, TABULEIRO[5][9] += 0},
-{TABULEIRO[6][5] += 1, TABULEIRO[6][6] += 1, TABULEIRO[6][7] =+ 1, TABULEIRO[6][8] += 1, TABULEIRO[6][9] += 1,}
+{1, 1, 1, 1, 1}  //6,5 - 6,9
 };
 
 int cruz[3][5] = 
 {
-/*{0, 0, 1, 0, 0}, //6,3
+{0, 0, 1, 0, 0}, //6,3
 {1, 1, 1, 1, 1}, //7,1 - 7,5
-{0, 0, 1, 0, 0}  //8,3*/
-{TABULEIRO[6][1] += 0, TABULEIRO[6][2] += 0, TABULEIRO[6][3] =+ 1, TABULEIRO[6][4] += 0, TABULEIRO[6][5] += 0},
-{TABULEIRO[7][1] += 1, TABULEIRO[7][2] =+ 1, TABULEIRO[7][3] =+ 1, TABULEIRO[7][4] =+ 1, TABULEIRO[7][5] += 1},
-{TABULEIRO[8][1] += 0, TABULEIRO[8][2] += 0, TABULEIRO[8][3] =+ 1, TABULEIRO[8][4] += 0, TABULEIRO[8][5] += 0,}
-};
+{0, 0, 1, 0, 0}  //8,3
+};*/
 
 
 
@@ -117,6 +108,21 @@ for(int l = 0; l < 10; l++) //Primeiro, definir a variável da linha e quantas v
 {
     for(int c = 0; c < 10; c++) //Em seguida, fazer o mesmo com a variável da coluna
     {   
+
+        if (l == 0 && c == 3 || l == 1 && c == 2 || l == 1 && c == 3 || l == 1 && c == 4 || l == 2 && c == 3) //Condicional de octaedro
+        {
+            TABULEIRO[l][c] = 1; 
+        } 
+        if (l == 6 && c == 3 || l == 7 && c == 1 || l == 7 && c == 2 || l == 7 && c == 3 || l == 7 && c == 4 || l == 7 && c == 5 || l == 8 && c == 3) //Condicional de cruz
+        {
+            TABULEIRO[l][c] = 1; 
+        } 
+        if (l == 4 && c == 7 || l == 5 && c == 6 || l == 5 && c == 7 || l == 5 && c == 8 || l == 6 && c == 5 || l == 6 && c == 6 || l == 6 && c == 7 || l == 6 && c == 8 || l == 6 && c == 9) //Condicional de cone
+        {
+            TABULEIRO[l][c] = 1; 
+        } 
+
+
         printf("%d\t", TABULEIRO[l][c]); //Função printf para imprimir a matriz, com \t para tabulação de espaço entre as colunas
     }
     printf("\n"); //Função printf com \n para dar espaço entre as linhas
